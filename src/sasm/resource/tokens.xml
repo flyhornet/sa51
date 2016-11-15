@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Tokens>
+	<TokSet chip="CHIP_8051">
+		<!-- for instruction prefix-->
+		<Tok name="times" type="TOKEN_PREFIX"  prefix="P_" />		
+		<!-- for instruction special-->
+		<Tok name="byte0" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="byte1" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="byte2" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="byte3" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="word0" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="word2" type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="low"   type="TOKEN_SPECIAL" prefix="S_" />
+		<Tok name="high"  type="TOKEN_SPECIAL" prefix="S_" />
+		<!-- for instruction operator-->
+ 		<Tok name="not"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="and"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="xor"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="or"   type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="eq"   type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="ne"   type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="gt"   type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="lt"   type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="lte"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="gte"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="shl"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="shr"  type="TOKEN_OPERATOR" prefix="O_" />
+		<Tok name="mod"  type="TOKEN_OPERATOR" prefix="O_" />
+
+	</TokSet>
+</Tokens>

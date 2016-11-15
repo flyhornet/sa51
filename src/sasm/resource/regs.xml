@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Register>
+	<RegSet chip="CHIP_8051">
+		<Reg name="C" 		leaf="BIT" 			root="BIT"/>
+		<Reg name="A" 		leaf="REG_GPR" 		root="BIT"/>
+		<Reg name="R0" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R1" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R2" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R3" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R4" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R5" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R6" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="R7" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="AB" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="PC" 		leaf="REG_WR" 		root="REG8"/>
+		<Reg name="DPTR" 	leaf="REG_WR" 		root="REG8"/>
+		<Reg name="@A" 		leaf="REG_INDIR" 	root="REG8"/>
+		<Reg name="@R0" 	leaf="REG_INDIR" 	root="REG8"/>
+		<Reg name="@R1" 	leaf="REG_INDIR" 	root="REG8"/>
+		<Reg name="@DPTR" 	leaf="REG_INDIR" 	root="REG8"/>
+	</RegSet>
+</Register>

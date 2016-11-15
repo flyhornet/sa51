@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Directive>
+	<DircSet chip="CHIP_8051">
+		<Dirc name="even"/>
+		<Dirc name="org"/>
+		<Dirc name="using"/>
+		<!-- procedure declaration -->
+		<Dirc name="endp"/>
+		<Dirc name="label"/>
+		<Dirc name="proc"/>
+		<!-- program linkage -->
+		<Dirc name="extern"/>
+		<Dirc name="extrn"/>
+		<Dirc name="name"/>
+		<Dirc name="public"/>
+		<!-- segment control -->
+		<Dirc name="bseg"/>
+		<Dirc name="cseg"/>
+		<Dirc name="iseg"/>
+		<Dirc name="rseg"/>
+		<Dirc name="dseg"/>
+		<Dirc name="xseg"/>
+		<Dirc name="segment"/>
+		<!-- symbol definition -->
+		<Dirc name="bit"/>
+		<Dirc name="code"/>
+		<Dirc name="const"/>
+		<Dirc name="data"/>
+		<Dirc name="idata"/>
+		<Dirc name="xdata"/>
+		<Dirc name="lit"/>
+		<Dirc name="sbit"/>
+		<Dirc name="set"/>
+		<Dirc name="sfr"/>
+		<Dirc name="sfr16"/>
+		<!-- Miscellaneous -->
+		<Dirc name="end"/>
+		<Dirc name="__error__"/>
+		<Dirc name="__warning__"/>
+		<!-- segment class skip=1:: key has been defined as before,only list them -->
+		<Dirc name="bit"   skip="1"/>
+		<Dirc name="code"  skip="1"/>
+		<Dirc name="const" skip="1"/>
+		<Dirc name="data"  skip="1"/>
+		<Dirc name="idata" skip="1"/>
+		<Dirc name="xdata" skip="1"/>
+		<Dirc name="number"/>
+		<!-- segment relocation -->
+		<Dirc name="at"/>
+		<Dirc name="bitaddressable"/>
+		<Dirc name="inblock"/>
+		<Dirc name="inpage"/>
+		<Dirc name="inseg"/>
+		<Dirc name="off"/>
+		<Dirc name="overlayable"/>
+		<!-- egment alignment -->
+		<Dirc name="bit" skip="1"/>
+		<Dirc name="byte"/>
+		<Dirc name="word"/>
+		<Dirc name="dword"/>
+		<Dirc name="page"/>
+		<Dirc name="block"/>
+		<Dirc name="seg"/>
+		<Dirc name="near"/>
+		<Dirc name="far"/>
+	</DircSet>
+</Directive>

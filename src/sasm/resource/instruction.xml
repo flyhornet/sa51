@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Instruction>
+	/* 
+		IMMEDIATE:#digit,#id
+		OFFSET:digit				|MEMORY
+		NUMBER:digit
+		RAMADDR: digit,id 			=MEMORY
+		ROMADDR: digit,id 			=MEMORY
+		BIT8:digit.digit,id 		|MEMORY
+
+	*/
+	<InstSet chip = "CHIP_8051">
+		<!-- fake instruction keep rom -->
+		<Inst name="DB" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="DD" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="DW" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<!-- fake instruction keep ram -->
+		<Inst name="DSB" 	syntax="DSB IMMEDIATE" 				opcode="00" 		rel="REL_NONE"/>
+		<Inst name="DS"  	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="DSW" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="DSD" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="DBIT" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<!-- fake instruction -->	
+		<Inst name="EQU" 	syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<Inst name="INCBIN" syntax="ignore" 					opcode="ignore" 	rel="ignore"/>
+		<!-- real instruction -->
+		<Inst name="ACALL" 	syntax="ACALL ROMADDR" 				opcode="11 00" 		rel="REL_ROM11"/>
+		<Inst name="ADD" 	syntax="ADD A,IMMEDIATE" 			opcode="24 00" 		rel="REL_NONE,REL_IMM8"/>
+		<Inst name="ADD" 	syntax="ADD A,RAMADDR" 				opcode="25 00" 		rel="REL_NONE,REL_RAM8"/>
+		<Inst name="ADD" 	syntax="ADD A,@R0" 					opcode="26" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,@R1" 					opcode="27" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R0" 					opcode="28" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R1" 					opcode="29" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R2" 					opcode="2A" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R3" 					opcode="2B" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R4" 					opcode="2C" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R5" 					opcode="2D" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R6" 					opcode="2E" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADD" 	syntax="ADD A,R7" 					opcode="2F" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R0" 					opcode="38" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R1" 					opcode="39" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R2" 					opcode="3A" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R3" 					opcode="3B" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R4" 					opcode="3C" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R5" 					opcode="3D" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R6" 					opcode="3E" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,R7" 					opcode="3F" 		rel="REL_NONE,REL_NONE"/>		
+		<Inst name="ADDC" 	syntax="ADDC A,RAMADDR" 			opcode="35 00"  	rel="REL_NONE,REL_RAM8"/>		
+		<Inst name="ADDC" 	syntax="ADDC A,@R0" 				opcode="36" 		rel="REL_NONE,REL_NONE"/>				
+		<Inst name="ADDC" 	syntax="ADDC A,@R1" 				opcode="37" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ADDC" 	syntax="ADDC A,IMMEDIATE" 			opcode="34 00" 		rel="REL_NONE,REL_IMM8"/>
+		<Inst name="AJMP" 	syntax="AJMP ROMADDR" 				opcode="01 00" 		rel="REL_ROM11"/>
+		<Inst name="ANL" 	syntax="ANL A,R0" 					opcode="58" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R1" 					opcode="59" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R2" 					opcode="5A" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R3" 					opcode="5B" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R4" 					opcode="5C" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R5" 					opcode="5D" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R6" 					opcode="5E" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,R7" 					opcode="5F" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,RAMADDR" 				opcode="55 00" 		rel="REL_NONE,REL_RAM8"/>
+		<Inst name="ANL" 	syntax="ANL A,@R0" 					opcode="56" 		rel="REL_NONE,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL A,@R1" 					opcode="57" 		rel="REL_NONE,REL_NONE"/>		
+		<Inst name="ANL" 	syntax="ANL A,IMMEDIATE" 			opcode="54 00" 		rel="REL_NONE,REL_IMM8"/>		
+		<Inst name="ANL" 	syntax="ANL RAMADDR,A" 				opcode="52 00" 		rel="REL_RAM8,REL_NONE"/>
+		<Inst name="ANL" 	syntax="ANL RAMADDR,IMMEDIATE" 		opcode="53 00 00" 	rel="REL_RAMH8,REL_IMML8"/>		
+		<Inst name="ANL" 	syntax="ANL C,BIT8"  			   	opcode="82 00" 		rel="REL_NONE,REL_RAM8"/>
+		<Inst name="ANL" 	syntax="ANL C,/BIT8" 			   	opcode="B0 00" 		rel="REL_NONE,REL_RAM8"/>		
+		<Inst name="CJNE" 	syntax="CJNE A,RAMADDR,OFFSET"     	opcode="B5 00 00" 	rel="REL_NONE,REL_RAMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE A,IMMEDIATE,OFFSET"   	opcode="B4 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R0,IMMEDIATE,OFFSET"  	opcode="B8 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R1,IMMEDIATE,OFFSET"  	opcode="B9 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R2,IMMEDIATE,OFFSET"  	opcode="BA 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R3,IMMEDIATE,OFFSET"  	opcode="BB 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R4,IMMEDIATE,OFFSET"  	opcode="BC 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R5,IMMEDIATE,OFFSET"  	opcode="BD 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R6,IMMEDIATE,OFFSET"  	opcode="BE 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE R7,IMMEDIATE,OFFSET"  	opcode="BF 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE @R0,IMMEDIATE,OFFSET" 	opcode="B6 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>
+		<Inst name="CJNE" 	syntax="CJNE @R1,IMMEDIATE,OFFSET" 	opcode="B7 00 00" 	rel="REL_NONE,REL_IMMH8,REL_RAML8"/>	
+		<Inst name="CLR" 	syntax="CLR A" 		 				opcode="E4" 		rel="REL_NONE"/>
+		<Inst name="CLR" 	syntax="CLR C" 		 				opcode="C3" 		rel="REL_NONE"/>
+		<Inst name="CLR" 	syntax="CLR BIT8" 	 				opcode="C2 00" 		rel="REL_RAM8"/>
+		<Inst name="CPL" 	syntax="CPL A" 		 				opcode="F4" 		rel="REL_NONE"/>
+		<Inst name="CPL" 	syntax="CPL C" 		 				opcode="B3" 		rel="REL_NONE"/>
+		<Inst name="CPL" 	syntax="CPL BIT8" 	 				opcode="B2 00" 		rel="REL_RAM8"/>		
+		<Inst name="DA"  	syntax="DA A" 		 				opcode="D4" 		rel="REL_NONE"/>		
+		<Inst name="DEC" 	syntax="DEC A" 		 				opcode="14" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R0" 	 				opcode="18" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R1" 	 				opcode="19" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R2" 	 				opcode="1A" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R3" 	 				opcode="1B" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R4" 	 				opcode="1C" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R5" 	 				opcode="1D" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R6" 	 				opcode="1E" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC R7" 	 				opcode="1F" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC RAMADDR" 				opcode="15 00" 		rel="REL_RAM8"/>
+		<Inst name="DEC" 	syntax="DEC @R1" 	 				opcode="17" 		rel="REL_NONE"/>
+		<Inst name="DEC" 	syntax="DEC @R0" 	 				opcode="16" 		rel="REL_NONE"/>
+		<Inst name="DIV" 	syntax="DIV AB"  	 				opcode="84" 		rel="REL_NONE"/>
+		<Inst name="DJNZ"	syntax="DJNZ R0,OFFSET"				opcode="D8 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R1,OFFSET"				opcode="D9 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R2,OFFSET"				opcode="DA 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R3,OFFSET"				opcode="DB 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R4,OFFSET"				opcode="DC 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R5,OFFSET"				opcode="DD 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R6,OFFSET"				opcode="DE 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ R7,OFFSET"				opcode="DF 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="DJNZ"	syntax="DJNZ RAMADDR,OFFSET"		opcode="D5 00 00"	rel="REL_RAMH8,REL_RAM8"/>	
+		<Inst name="INC"	syntax="INC R0"						opcode="08"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R1"						opcode="09"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R2"						opcode="0A"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R3"						opcode="0B"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R4"						opcode="0C"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R5"						opcode="0D"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R6"						opcode="0E"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC R7"						opcode="0F"			rel="REL_NONE"/>	
+		<Inst name="INC"	syntax="INC DPTR"					opcode="A3"			rel="REL_NONE"/>	
+		<Inst name="INC" 	syntax="INC A"						opcode="04"			rel="REL_NONE"/>	
+		<Inst name="INC" 	syntax="INC RAMADDR"				opcode="05 00"		rel="REL_RAM8"/>	
+		<Inst name="INC" 	syntax="INC @R0"					opcode="06"			rel="REL_NONE"/>	
+		<Inst name="INC" 	syntax="INC @R1"					opcode="07"			rel="REL_NONE"/>	
+		<Inst name="JB"		syntax="JB BIT8,OFFSET"				opcode="20 00 00"	rel="REL_RAMH8,REL_RAML8"/>	
+		<Inst name="JBC"	syntax="JBC BIT8,OFFSET"			opcode="10 00 00"	rel="REL_RAMH8,REL_RAML8"/>	
+		<Inst name="JC"		syntax="JC OFFSET"					opcode="40 00"		rel="REL_RAM8"/>	
+		<Inst name="JMP"	syntax="JMP @A+DPTR"				opcode="73"			rel="REL_NONE"/>	
+		<Inst name="JNB"	syntax="JNB BIT8,OFFSET"			opcode="30 00 00"	rel="REL_RAMH8,REL_RAML8"/>	
+		<Inst name="JNC"	syntax="JNC OFFSET"					opcode="50 00"		rel="REL_RAML8"/>	
+		<Inst name="JNZ"	syntax="JNZ OFFSET"					opcode="70 00"		rel="REL_RAML8"/>	
+		<Inst name="JZ"		syntax="JZ OFFSET"					opcode="60 00"		rel="REL_RAML8"/>	
+		<Inst name="LCALL"	syntax="LCALL addr16"				opcode="12 00 00"	rel="REL_ROM16"/>	
+		<Inst name="LJMP"	syntax="LJMP addr16"				opcode="02 00 00"	rel="REL_ROM16"/>	
+		<Inst name="MOV"	syntax="MOV A,R0"					opcode="E8"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R1"					opcode="E9"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R2"					opcode="EA"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R3"					opcode="EB"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R4"					opcode="EC"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R5"					opcode="ED"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R6"					opcode="EE"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,R7"					opcode="EF"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,RAMADDR"				opcode="E5 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV A,@R0"					opcode="E6"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,@R1"					opcode="E7"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV A,IMMEDIATE"			opcode="74 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R0,A"					opcode="F8"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R1,A"					opcode="F9"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R2,A"					opcode="FA"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R3,A"					opcode="FB"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R4,A"					opcode="FC"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R5,A"					opcode="FD"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R6,A"					opcode="FE"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R7,A"					opcode="FF"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV R0,RAMADDR"				opcode="A8 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R1,RAMADDR"				opcode="A9 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R2,RAMADDR"				opcode="AA 00"		rel="REL_NONE,REL_RAM8"/>
+		<Inst name="MOV"	syntax="MOV R3,RAMADDR"				opcode="AB 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R4,RAMADDR"				opcode="AC 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R5,RAMADDR"				opcode="AD 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R6,RAMADDR"				opcode="AE 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R7,RAMADDR"				opcode="AF 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV R0,IMMEDIATE"			opcode="78 00"		rel="REL_NONE,REL_IMM8"/>
+		<Inst name="MOV"	syntax="MOV R1,IMMEDIATE"			opcode="79 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R2,IMMEDIATE"			opcode="7A 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R3,IMMEDIATE"			opcode="7B 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R4,IMMEDIATE"			opcode="7C 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R5,IMMEDIATE"			opcode="7D 00"		rel="REL_NONE,REL_IMM8"/>
+		<Inst name="MOV"	syntax="MOV R6,IMMEDIATE"			opcode="7E 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV R7,IMMEDIATE"			opcode="7F 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,A"				opcode="F5 00"		rel="REL_RAM8,REL_NONE"/>
+		<Inst name="MOV"	syntax="MOV RAMADDR,R0"				opcode="88 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R1"				opcode="89 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R2"				opcode="8A 00"		rel="REL_RAM8,REL_NONE"/>
+		<Inst name="MOV"	syntax="MOV RAMADDR,R3"				opcode="8B 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R4"				opcode="8C 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R5"				opcode="8D 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R6"				opcode="8E 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,R7"				opcode="8F 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,RAMADDR"		opcode="85 00 00"	rel="REL_RAMH8,REL_RAML8"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,@R0"			opcode="86 00"		rel="REL_RAM8,REL_NONE"/>				
+		<Inst name="MOV"	syntax="MOV RAMADDR,@R1"			opcode="87 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV RAMADDR,IMMEDIATE"		opcode="75 00 00"	rel="REL_RAMH8,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV @R0,A"					opcode="F6"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV @R1,A"					opcode="F7"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV @R0,RAMADDR"			opcode="A6 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV @R1,RAMADDR"			opcode="A7 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV @R0,IMMEDIATE"			opcode="76 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV @R1,IMMEDIATE"			opcode="77 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="MOV"	syntax="MOV C,BIT8"					opcode="A2 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="MOV"	syntax="MOV BIT8,C"					opcode="92 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="MOV"	syntax="MOV DPTR,IMMEDIATE"			opcode="90 00 00"	rel="REL_NONE,REL_IMM16"/>	
+		<Inst name="MOVC"	syntax="MOVC A,@A+DPTR"				opcode="93"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVC"	syntax="MOVC A,@A+PC"				opcode="83"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX A,@R0"					opcode="E2"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX A,@R1"					opcode="E3"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX A,@DPTR"				opcode="E0"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX @R0,A"					opcode="F2"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX @R1,A"					opcode="F3"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MOVX"	syntax="MOVX @DPTR,A"				opcode="F0"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="MUL"	syntax="MUL AB"						opcode="A4"			rel="REL_NONE,REL_NONE"/>
+		<Inst name="NOP"	syntax="NOP"						opcode="00"			rel="REL_NONE,REL_NONE"/>
+		<Inst name="ORL"	syntax="ORL A,R0"					opcode="48"			rel="REL_NONE,REL_NONE"/>
+		<Inst name="ORL"	syntax="ORL A,R1"					opcode="49"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R2"					opcode="4A"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R3"					opcode="4B"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R4"					opcode="4C"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R5"					opcode="4D"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R6"					opcode="4E"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,R7"					opcode="4F"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,RAMADDR"				opcode="45 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="ORL"	syntax="ORL A,@R0"					opcode="46"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,@R1"					opcode="47"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL A,IMMEDIATE"			opcode="44 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="ORL"	syntax="ORL RAMADDR,A"				opcode="42 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="ORL"	syntax="ORL RAMADDR,IMMEDIATE"		opcode="43 00 00"	rel="REL_RAMH8,REL_IMM8"/>
+		<Inst name="ORL"	syntax="ORL C,BIT8"					opcode="72 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="ORL"	syntax="ORL C,/BIT8"				opcode="A0 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="POP"	syntax="POP RAMADDR"				opcode="D0 00"		rel="REL_RAM8"/>
+		<Inst name="PUSH"	syntax="PUSH RAMADDR"				opcode="C0 00"		rel="REL_RAM8"/>	
+		<Inst name="RET"	syntax="RET"						opcode="22"			rel="REL_NONE"/>
+		<Inst name="RETI"	syntax="RETI"						opcode="32"			rel="REL_NONE"/>
+		<Inst name="RL"		syntax="RL A"						opcode="23"			rel="REL_NONE"/>	
+		<Inst name="RLC"	syntax="RLC A"						opcode="33"			rel="REL_NONE"/>	
+		<Inst name="RR"		syntax="RR A"						opcode="03"			rel="REL_NONE"/>	
+		<Inst name="RRC"	syntax="RRC A"						opcode="13"			rel="REL_NONE"/>	
+		<Inst name="SETB"	syntax="SETB C"						opcode="D3"			rel="REL_NONE"/>	
+		<Inst name="SETB"	syntax="SETB BIT8"					opcode="D2 00"		rel="REL_RAM8"/>	
+		<Inst name="SJMP"	syntax="SJMP OFFSET"				opcode="80 00"		rel="REL_RAM8"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R0"					opcode="98"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R1"					opcode="99"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R2"					opcode="9A"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R3"					opcode="9B"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R4"					opcode="9C"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R5"					opcode="9D"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R6"					opcode="9E"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,R7"					opcode="9F"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,RAMADDR"				opcode="95 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="SUBB"	syntax="SUBB A,@R0"					opcode="96"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,@R1"					opcode="97"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="SUBB"	syntax="SUBB A,IMMEDIATE"			opcode="94 00"		rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="SWAP"	syntax="SWAP A"						opcode="C4"			rel="REL_NONE"/>				
+		<Inst name="XCH"	syntax="XCH A,R0"					opcode="C8"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R1"					opcode="C9"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R2"					opcode="CA"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R3"					opcode="CB"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R4"					opcode="CC"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R5"					opcode="CD"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R6"					opcode="CE"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,R7"					opcode="CF"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,RAMADDR"				opcode="C5 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="XCH"	syntax="XCH A,@R0"					opcode="C6"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCH"	syntax="XCH A,@R1"					opcode="C7"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCHD"	syntax="XCHD A,@R0"					opcode="D6"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XCHD"	syntax="XCHD A,@R1"					opcode="D7"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R0"					opcode="68"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R1"					opcode="69"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R2"					opcode="6A"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R3"					opcode="6B"			rel="REL_NONE,REL_NONE"/>
+		<Inst name="XRL"	syntax="XRL A,R4"					opcode="6C"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R5"					opcode="6D"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R6"					opcode="6E"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,R7"					opcode="6F"			rel="REL_NONE,REL_NONE"/>
+		<Inst name="XRL"	syntax="XRL A,RAMADDR"				opcode="65 00"		rel="REL_NONE,REL_RAM8"/>	
+		<Inst name="XRL"	syntax="XRL A,@R0"					opcode="66"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,@R1"					opcode="67"			rel="REL_NONE,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL A,IMMEDIATE"			opcode="64"			rel="REL_NONE,REL_IMM8"/>	
+		<Inst name="XRL"	syntax="XRL RAMADDR,A"				opcode="62 00"		rel="REL_RAM8,REL_NONE"/>	
+		<Inst name="XRL"	syntax="XRL RAMADDR,IMMEDIATE"		opcode="63 00 00"	rel="REL_RAMH8,REL_IMM8"/>
+		       
+	</InstSet>
+ 
+</Instruction>
+
